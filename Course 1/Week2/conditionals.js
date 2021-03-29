@@ -98,3 +98,21 @@ var picture2 = new SimpleImage("smalllion.jpg");
 var result2 = topRightCorner(125, 20, picture2, 255, 0, 0);
 print(result2);
 
+//--------------------------------------------------------------------------
+// Exercise 7 - Changes in Red
+
+function changeRed(width, height) {
+    var picture = new SimpleImage(width, height);
+    var red = 0;
+    for (var pixel of picture.values()) {
+        if (pixel.getX() < picture.getWidth()-1) {
+            pixel.setRed(red);
+        } else {
+            red = 0;
+        }
+        red++;
+    }
+    return picture;
+}
+var result = changeRed(256,200);
+print(result);
