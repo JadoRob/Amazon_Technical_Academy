@@ -16,3 +16,26 @@ print(image);
 
 //--------------------------------------------------------------------------
 // Exercise 2 - Remove all the red.
+
+var image = new SimpleImage("chapel.png");
+
+for (var pixel of image.values()) {
+    if (pixel.getRed() > 0) {
+        pixel.setRed(0)
+    }
+}
+
+print(image);
+
+//--------------------------------------------------------------------------
+// Exercise 3 - Turn the eggs less red.
+
+var image = new SimpleImage("eastereggs.jpg");
+
+for (var pixel of image.values()) {
+    if (pixel.getRed() > 70) {
+        pixel.setRed(70)
+    }
+}
+
+print(image);
