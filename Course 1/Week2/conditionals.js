@@ -54,3 +54,47 @@ for (var pixel of image.values()) {
     }
 }
 print(image);
+
+//--------------------------------------------------------------------------
+// Exercise 5 - Green square in top left corner
+
+var image = new SimpleImage("chapel.jpg");
+// iterate through each pixel of the image object
+for (var pixel of image.values()) {
+    // evaluate if both X and Y are true (1 - 50) then change RGB to green
+    if (pixel.getY() <= 50) {
+        if (pixel.getX() <= 50) {
+            pixel.setRed(0);
+            pixel.setGreen(255);
+            pixel.setBlue(0);
+        }
+    }
+}
+print(image);
+
+//--------------------------------------------------------------------------
+// Exercise 6 - Rectangle of any color in top right corner
+
+function topRightCorner(cornerWidth, cornerHeight, someImage, red, green, blue) {
+    // iterate through each pixel of the image object
+    for (var pixel of someImage.values()) {
+        // check to see if the value of X is equal to the width minus corner width
+        // and if the value of Y is equal to or less than cornerHeight
+        if (pixel.getX() >= (someImage.getWidth() - cornerWidth)) {
+            if (pixel.getY() <= (cornerHeight)) {
+                // change the RGB values if both conditionals evaluate true
+                pixel.setRed(red);
+                pixel.setGreen(green);
+                pixel.setBlue(blue);
+            }
+        }
+    }
+    return(someImage)
+}
+var picture = new SimpleImage("chapel.png");
+var result = topRightCorner(30, 60, picture, 255, 255, 0);
+print(result);
+var picture2 = new SimpleImage("smalllion.jpg");
+var result2 = topRightCorner(125, 20, picture2, 255, 0, 0);
+print(result2);
+
